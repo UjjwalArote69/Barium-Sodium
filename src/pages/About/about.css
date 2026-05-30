@@ -1,0 +1,418 @@
+/* ============================================================
+   ABOUT PAGE
+   /about — the company's story, principles, numbers, and CTA.
+   Reuses the periodic-tile / serif-italic vocabulary.
+   ============================================================ */
+
+.about-page {
+  position: relative;
+  z-index: 5;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 48px 120px;
+}
+
+/* ---------- shared eyebrow ---------- */
+.about-page .ab-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.about-page .ab-eyebrow .line {
+  flex: 0 0 40px;
+  height: 1px;
+  background: var(--ink-faint);
+}
+.about-page .ab-eyebrow .dot-sep { color: var(--ink-faint); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.ab-hero {
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ab-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(52px, 8vw, 120px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+.ab-title em {
+  font-style: italic;
+  color: var(--c-alkaline);
+}
+.ab-title .ba { color: var(--c-alkaline); font-style: normal; }
+.ab-title .na { color: var(--c-alkali); font-style: normal; }
+
+.ab-lede {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 780px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.ab-lede strong { font-weight: 500; }
+
+.ab-meta {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  flex-wrap: wrap;
+}
+.ab-meta strong { color: var(--ink); font-weight: 700; }
+
+/* ============================================================
+   BRAND TILES — the Ba + Na pair, large
+   ============================================================ */
+.ab-brand {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.2fr;
+  gap: 80px;
+  align-items: center;
+  padding: 100px 0;
+  border-bottom: 1px solid var(--line);
+}
+@media (max-width: 900px) {
+  .ab-brand {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.ab-tile-pair {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.ab-tile {
+  position: relative;
+  flex: 1;
+  max-width: 220px;
+  aspect-ratio: 1 / 1.05;
+  border-radius: 16px;
+  background:
+    linear-gradient(160deg,
+      color-mix(in oklab, var(--accent) 18%, var(--bg-elev)),
+      color-mix(in oklab, var(--accent) 5%, var(--bg-elev)) 70%);
+  border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 14%, transparent),
+    0 30px 60px -22px rgba(0, 0, 0, 0.35),
+    0 0 90px -28px color-mix(in oklab, var(--accent) 65%, transparent);
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  isolation: isolate;
+}
+.ab-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    400px 200px at 80% -10%,
+    color-mix(in oklab, var(--accent) 30%, transparent),
+    transparent 60%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+.ab-tile > * { position: relative; z-index: 1; }
+
+.ab-tile-num {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.ab-tile-sym {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(72px, 8vw, 110px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  text-align: center;
+  margin: 6px 0;
+}
+
+.ab-tile-name {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  text-align: center;
+}
+
+.ab-brand-copy h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.ab-brand-copy p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-dim);
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+.ab-brand-copy p .ba { color: var(--c-alkaline); font-weight: 600; }
+.ab-brand-copy p .na { color: var(--c-alkali); font-weight: 600; }
+.ab-brand-copy p strong { color: var(--ink); font-weight: 600; }
+
+/* ============================================================
+   PRINCIPLES — how we work
+   ============================================================ */
+.ab-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ab-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 56px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.ab-section h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.ab-section-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  text-align: right;
+  line-height: 1.6;
+}
+
+.ab-principles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+@media (max-width: 800px) {
+  .ab-principles { grid-template-columns: 1fr; }
+}
+
+.ab-principle {
+  background: var(--bg);
+  padding: 36px 32px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.ab-principle:hover {
+  background: color-mix(in oklab, var(--accent) 5%, var(--bg));
+}
+
+.ab-principle-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ab-principle-tag .swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.ab-principle h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.ab-principle p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+}
+
+/* ============================================================
+   NUMBERS
+   ============================================================ */
+.ab-numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .ab-numbers { grid-template-columns: repeat(2, 1fr); }
+}
+
+.ab-stat {
+  position: relative;
+  padding: 28px 24px;
+  border-radius: 12px;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.ab-stat:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--line));
+}
+
+.ab-stat .num {
+  font-family: var(--serif);
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.ab-stat .label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.ab-cta {
+  padding: 100px 0 0;
+  text-align: center;
+}
+
+.ab-cta h2 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.ab-cta h2 em {
+  color: var(--c-alkaline);
+}
+
+.ab-cta p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+  max-width: 540px;
+  margin: 0 auto 32px;
+}
+
+.ab-cta-actions {
+  display: inline-flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ab-cta .btn {
+  padding: 14px 24px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.ab-cta .btn .arrow {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ab-cta .btn:hover .arrow {
+  transform: translateX(4px);
+}
+.ab-cta .btn.primary {
+  background: var(--c-alkaline);
+  color: var(--bg);
+  border: 1px solid var(--c-alkaline);
+}
+.ab-cta .btn.primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px -10px var(--c-alkaline);
+}
+.ab-cta .btn.ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.ab-cta .btn.ghost:hover {
+  background: rgba(var(--scrim-rgb), 0.05);
+  border-color: rgba(var(--scrim-rgb), 0.2);
+}
+
+@media (max-width: 768px) {
+  .about-page { padding: 40px 24px 80px; }
+  .ab-hero { padding-bottom: 56px; }
+  .ab-section { padding: 64px 0; }
+  .ab-brand { padding: 64px 0; }
+}

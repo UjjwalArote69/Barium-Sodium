@@ -1,0 +1,15 @@
+/* Make the giant element symbol feel clickable — slides slightly toward the
+   reader on hover, away from the column edge so it doesn't crowd anything. */
+.proj-symbol-clickable {
+  outline: none;
+  user-select: none;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.proj-symbol-clickable:hover,
+.proj-symbol-clickable:focus-visible {
+  transform: translateX(6px);
+}
+.proj-row.flip .proj-symbol-clickable:hover,
+.proj-row.flip .proj-symbol-clickable:focus-visible {
+  transform: translateX(-6px);
+}

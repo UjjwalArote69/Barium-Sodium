@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BaNa logo — standalone snippet</title>
+
+  <!-- Fonts the logo uses (Instrument Serif + JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== BaNa logo — self-contained, scoped to .bana-logo ===== */
+    .bana-logo {
+      /* tokens — override these to retheme */
+      --bana-alkaline: #ffb547;   /* Ba (Barium) accent  */
+      --bana-alkali:   #ff6b5b;   /* Na (Sodium) accent  */
+      --bana-ink:      #f5f3ee;   /* wordmark color      */
+      --bana-ink-dim:  #8a8a92;   /* tagline color       */
+      --bana-line:     rgba(255, 255, 255, 0.12); /* divider */
+      --bana-mono:  "JetBrains Mono", "SF Mono", Menlo, monospace;
+      --bana-serif: "Instrument Serif", "Times New Roman", serif;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    /* light-theme variant: add class="bana-logo light" */
+    .bana-logo.light {
+      --bana-alkaline: #b87410;
+      --bana-alkali:   #d63d2c;
+      --bana-ink:      #14141a;
+      --bana-ink-dim:  #5e5e68;
+      --bana-line:     rgba(20, 20, 26, 0.15);
+    }
+
+    .bana-logo .mini-tile {
+      width: 38px;
+      height: 38px;
+      border-radius: 5px;
+      background: color-mix(in oklab, var(--accent) 14%, transparent);
+      border: 1px solid color-mix(in oklab, var(--accent) 50%, transparent);
+      color: var(--accent);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3px 5px;
+      box-shadow: 0 0 10px -2px color-mix(in oklab, var(--accent) 40%, transparent);
+      transition: all 0.3s ease;
+    }
+    .bana-logo .mn-num {
+      font-family: var(--bana-mono);
+      font-size: 7px;
+      opacity: 0.85;
+      letter-spacing: 0;
+    }
+    .bana-logo .mn-sym {
+      font-family: var(--bana-mono);
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: -0.02em;
+      margin-top: -2px;
+    }
+
+    .bana-logo .logo-meta {
+      margin-left: 16px;
+      padding-left: 16px;
+      border-left: 1px solid var(--bana-line);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .bana-logo .l1 {
+      font-family: var(--bana-serif);
+      font-style: italic;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--bana-ink);
+    }
+    .bana-logo .l2[lang="hi"] {
+      font-family: var(--bana-serif);
+      font-size: 24px;
+      line-height: 1;
+      background: linear-gradient(120deg, var(--bana-alkaline), var(--bana-alkali));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    /* ===== end BaNa logo ===== */
+
+    /* demo page only — not part of the snippet */
+    body { margin: 0; font-family: system-ui, sans-serif; }
+    .demo { padding: 40px; display: flex; flex-direction: column; gap: 24px; }
+    .dark  { background: #0a0a0b; }
+    .lite  { background: #faf8f3; }
+    .demo > div { padding: 28px 40px; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <div class="dark">
+      <!-- ===== copy from here ===== -->
+      <a class="bana-logo" href="/" aria-label="Barium Sodium — home">
+        <span class="mini-tile" style="--accent: var(--bana-alkaline)">
+          <span class="mn-num">56</span>
+          <span class="mn-sym">Ba</span>
+        </span>
+        <span class="mini-tile" style="--accent: var(--bana-alkali)">
+          <span class="mn-num">11</span>
+          <span class="mn-sym">Na</span>
+        </span>
+        <span class="logo-meta">
+          <span class="l1">Barium Sodium</span>
+          <span class="l2" lang="hi">बना</span>
+        </span>
+      </a>
+      <!-- ===== to here ===== -->
+    </div>
+
+    <div class="lite">
+      <a class="bana-logo light" href="/" aria-label="Barium Sodium — home">
+        <span class="mini-tile" style="--accent: var(--bana-alkaline)">
+          <span class="mn-num">56</span>
+          <span class="mn-sym">Ba</span>
+        </span>
+        <span class="mini-tile" style="--accent: var(--bana-alkali)">
+          <span class="mn-num">11</span>
+          <span class="mn-sym">Na</span>
+        </span>
+        <span class="logo-meta">
+          <span class="l1">Barium Sodium</span>
+          <span class="l2" lang="hi">बना</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
